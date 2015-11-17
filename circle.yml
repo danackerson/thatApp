@@ -6,7 +6,7 @@ dependencies:
   pre:
     - CGO_ENABLED=0 go build -a -installsuffix nocgo .
   override:
-    - docker build -t quay.io/dan_ackerson/thatApp .
+    - docker build -t quay.io/dan_ackerson/thatapp .
     - docker run -p 8080:8080 quay.io/dan_ackerson/thatApp:
         background: true
     - sleep 10
@@ -21,4 +21,4 @@ deployment:
     branch: master
     commands:
       - docker login -e $QUAY_EMAIL -u $QUAY_USERNAME -p $QUAY_PWD $QUAY_URL
-      - docker push quay.io/dan_ackerson/thatApp
+      - docker push quay.io/dan_ackerson/thatapp
