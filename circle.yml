@@ -7,7 +7,7 @@ dependencies:
     - CGO_ENABLED=0 go build -a -installsuffix nocgo .
   override:
     - docker build -t quay.io/dan_ackerson/thatapp .
-    - docker run -p 8080:8080 quay.io/dan_ackerson/thatApp:
+    - docker run -p 8080:8080 quay.io/dan_ackerson/thatapp:
         background: true
     - sleep 10
 
