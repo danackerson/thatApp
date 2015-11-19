@@ -20,4 +20,4 @@ deployment:
     branch: master
     commands:
       - docker login -e $QUAY_EMAIL -u $QUAY_USERNAME -p $QUAY_PWD $QUAY_URL
-      - docker push quay.io/dan_ackerson/thatapp
+      - docker push quay.io/dan_ackerson/thatapp:$CIRCLE_BUILD_NUM
