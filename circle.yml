@@ -9,7 +9,6 @@ dependencies:
     - docker build -t quay.io/dan_ackerson/thatapp .
     - docker run -p 8080:8080 quay.io/dan_ackerson/thatapp:
         background: true
-    - sleep 10
 
 test:
   override:
