@@ -11,14 +11,18 @@ import (
 func main() {
 	http.HandleFunc("/", hello)
 	log.Fatal(http.ListenAndServe(":8080", nil))
-	response, err := http.Get("http://this:8080/")
-	checkError(err)
-	contents := readBody(response.Body)
-	fmt.Println(contents)
+	http.HandleFunc("/this", this)
 }
 
 func hello(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Hello That!")
+}
+
+func this(w http.ResponseWriter, r *http.Request) {
+	response, err := http.Get("http://this:8080/")
+	checkError(err)
+	contents := readBody(response.Body)
+	fmt.Fprint(w, contents)
 }
 
 func readBody(body io.ReadCloser) []byte {
