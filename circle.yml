@@ -6,8 +6,8 @@ dependencies:
   pre:
     - CGO_ENABLED=0 go build -a -installsuffix nocgo .
   override:
-    - docker build -t quay.io/dan_ackerson/thatapp .
-    - docker run -p 8080:8080 quay.io/dan_ackerson/thatapp:
+    - docker build -t quay.io/dan_ackerson/thatapp:$CIRCLE_BUILD_NUM .
+    - docker run -p 8080:8080 quay.io/dan_ackerson/thatapp:$CIRCLE_BUILD_NUM:
         background: true
 
 test:
