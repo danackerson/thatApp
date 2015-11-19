@@ -10,8 +10,8 @@ import (
 
 func main() {
 	http.HandleFunc("/index", hello)
-	log.Fatal(http.ListenAndServe(":8080", nil))
 	http.HandleFunc("/this", this)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func hello(w http.ResponseWriter, r *http.Request) {
@@ -20,10 +20,10 @@ func hello(w http.ResponseWriter, r *http.Request) {
 
 func this(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Hello Dan!")
-	/*response, err := http.Get("http://this:8081/")
+	response, err := http.Get("http://this:8081/")
 	checkError(err)
 	contents := readBody(response.Body)
-	fmt.Fprint(w, contents)*/
+	fmt.Fprint(w, contents)
 }
 
 func readBody(body io.ReadCloser) []byte {
