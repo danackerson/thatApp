@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", hello)
+	http.HandleFunc("/index", hello)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 	http.HandleFunc("/this", this)
 }

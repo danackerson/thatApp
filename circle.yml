@@ -12,8 +12,8 @@ dependencies:
 
 test:
   override:
-    - "curl http://localhost:8080/"
-    - "[[ $(curl http://localhost:8080/) = 'Hello That!' ]]"
+    - "curl http://localhost:8080/index"
+    - "[[ $(curl http://localhost:8080/index) = 'Hello That!' ]]"
 
 deployment:
   hub:
