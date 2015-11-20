@@ -10,7 +10,7 @@ import (
 
 func main() {
 	http.HandleFunc("/index", hello)
-	http.HandleFunc("/this", this)
+	http.HandleFunc("/this", thisapp)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
@@ -18,9 +18,9 @@ func hello(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Hello That!")
 }
 
-func this(w http.ResponseWriter, r *http.Request) {
+func thisapp(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Hello Dan!")
-	response, err := http.Get("http://this:8081/")
+	response, err := http.Get("http://thisapp:8080/")
 	checkError(err)
 	contents := readBody(response.Body)
 	fmt.Fprint(w, contents)
