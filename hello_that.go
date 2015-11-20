@@ -19,11 +19,10 @@ func hello(w http.ResponseWriter, r *http.Request) {
 }
 
 func thisapp(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hello Dan!")
 	response, err := http.Get("http://thisapp:8080/")
 	checkError(err)
 	contents := readBody(response.Body)
-	fmt.Fprint(w, contents)
+	fmt.Fprint(w, string(contents))
 }
 
 func readBody(body io.ReadCloser) []byte {
